@@ -16,14 +16,12 @@ object PreProc {                                                                
         def main(args: Array[String]) {                                         // START OF MAIN DRIVER PROGRAM
 
 
-                //val conf = new SparkConf().setMaster("spark://Simeons-MacBook-Pro.local:7077").setAppName("PreProc")
-                //val sc = new SparkContext(conf)
+//val conf = new SparkConf().setMaster("spark://Simeons-MacBook-Pro.local:7077").setAppName("PreProc")
+//val sc = new SparkContext(conf)
 
-val inputfile = ("/Users/simeonmeerson/Documents/Academics/FALL_2015/BigDataAnalytics/Assignments/Homeworks/HW_5/wikidumps/enwiki-latest-pages-articles-multistream.xml")
-            //val inputfile = ("/Users/simeonmeerson/Documents/Academics/FALL_2015/BigDataAnalytics/Assignments/Homeworks/HW_5/wikidumps/wikidump.small")
-                // WIKIDUMP FILE
-
-                val outputFile = new PrintWriter(new File("/Users/simeonmeerson/Desktop/wikiOut.txt"))
+val inputfile = ("/Users/.../wikidumps/enwiki-latest-pages-articles-multistream.xml")
+ // WIKIDUMP FILE
+                val outputFile = new PrintWriter(new File("/Users/.../wikiOut.txt"))
                 var a_output_line = new StringBuilder
 
 
@@ -40,9 +38,9 @@ val inputfile = ("/Users/simeonmeerson/Documents/Academics/FALL_2015/BigDataAnal
                 var counter = 0
                 var printsFine = false
                 var isPage = true
-                //var inputline
- //        if(counter <= 20)
- //           {
+ //		var inputline
+ //        	if(counter <= 20)
+ //           	{
 
 
         for (inputline <- Source.fromFile(inputfile).getLines)
@@ -125,7 +123,7 @@ val inputfile = ("/Users/simeonmeerson/Documents/Academics/FALL_2015/BigDataAnal
 
 
       //  else{        
-      //              //println("Total Number of PAGE/FILE/LINE's written to outPut")
+      //              //println("Total Number of PAGE/FILE/LINE's written to output")
       //              //print(counter)
       //              println("Closing File, wrote first 20 lines")
       //              println("	")	
@@ -135,8 +133,8 @@ val inputfile = ("/Users/simeonmeerson/Documents/Academics/FALL_2015/BigDataAnal
 
 		outputFile.close()
 
-    }                                                                       // END OF DRIVER PROGRAM/ MAIN
-}                                                                               // END OF OBJECT FUNC
+    }                          // END OF DRIVER PROGRAM/ MAIN
+}                              // END OF OBJECT FUNC
 
 
 
