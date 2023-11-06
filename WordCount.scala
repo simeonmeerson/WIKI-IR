@@ -10,32 +10,23 @@ object wordCount{										//	Opening A
 		val sc = new SparkContext(conf)
 		// val conf = new SparkConf().setMaster("local").setAppName("wordCount")
 
-
-		val file_1 = sc.textFile("/Users/simeonmeerson/programming/spark_disk/spark/bin/wordCount/one.txt")
-		val file_2 = sc.textFile("/Users/simeonmeerson/programming/spark_disk/spark/bin/wordCount/two.txt")
-
-
-
+		val file_1 = sc.textFile("/Users/.../spark_disk/spark/bin/wordCount/one.txt")
+		val file_2 = sc.textFile("/Users/.../spark_disk/spark/bin/wordCount/two.txt")
 
 		val words1 = file_1.flatMap(I=>I.split(" "))					//	split file elements at space 	ONE.TXT
 		val words2 = file_2.flatMap(I=>I.split(" "))					//	split file elements at space 	TWO.TXT
 
-
-	
 	val wordsLC_1 = words1.map(I=> I.toLowerCase())						// 	Words to lower Case File 1		
 	val wordsLC_2 = words2.map(I=> I.toLowerCase())						//	Words to lower Case File 2
 
 	val wordsOnly_1 = wordsLC_1.map(I=> I.replaceAll("[^A/Za-z]", " "))			//	words - non words file 1
 	val wordsOnly_2 = wordsLC_2.map(I => I.replaceAll("[^A/Za-z]", " ")) 			//	words - non words file 2
 
-
 	val wordsF_1 = wordsOnly_1.map(I => I.replaceAll(" ", "")).map(word=>(word, 1))		//	RDD to replace all Spaces with NOTHING f1
 	val wordsF_2 = wordsOnly_2.map(I => I.replaceAll(" ", "")).map(word=>(word, 1)) 	//	RDD to replace all Spaces with NOTHING f2
 
-
 	val countedWords1 = wordsF_1.count() 							//	words are counted
 	//println(countedWords1)								//	print wordCount
-	
 	
 	val countedWords2 = wordsF_2.count()							// will return int of count
 	
@@ -65,11 +56,10 @@ object wordCount{										//	Opening A
 //	val stringMap = string.map(x=>x.split(" "))
 //	stringMap.foreach(x=>x.foreach(println))
 
-	reducedRDD.saveAsTextFile("/Users/simeonmeerson/programming/spark_disk/projects/output1.txt")
+	reducedRDD.saveAsTextFile("/Users/.../spark_disk/projects/output1.txt")
 
-
-	}											// 	Closing B
-}												// 	Closing A
+	}									// 	Closing B
+}										// 	Closing A
 
 
 
