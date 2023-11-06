@@ -10,22 +10,18 @@ object PageRank {
 	def main(args: Array[String]) {
 		val sparkConf = new SparkConf().setAppName("PageRank")
 		val sc = new SparkContext(sparkConf)
-		// val input = sc.textFile(“./linkgraph/*.gz”) // your output directory from the last	assignment
+		// val input = sc.textFile(“./linkgraph/*.gz”) 		// output directory
 		// val input = sc.textFile("./links/*.gz")		// output from HW 7 LinkGraph
  
-//		val input = sc.textFile("/Users/simeonmeerson/Desktop/sample_outpuf_of_assignment7.txt")
+//		val input = sc.textFile("/Users/.../Desktop/sampleOutputFile.txt")
 
 		print("Loading Input -> Extracted Links (title: links")
 
-		val input = sc.textFile("/Users/simeonmeerson/programming/spark_disk/project/links")	
+		val input = sc.textFile("/Users/.../programming/spark_disk/project/links")	
 		   val page = input.map{ l =>
-        		    val pair = l.split("\t", 2)             			// assuming "\t" is the delimiter in the input file
-        		    (pair(0), pair(1))                      			// get the two fields: title and text
+        		    val pair = l.split("\t", 2)             	// assuming "\t" is the delimiter in the input file
+        		    (pair(0), pair(1))                      	// get the two fields: title and text
     		}		
-
-
-
-
 
     	val ITERATION = 20
 		
@@ -52,8 +48,6 @@ object PageRank {
 // Implement your PageRank algorithm according to the notes ...
 // Sort pages by their PageRank scores ranks.sortBy ...
 // save the page title and pagerank scores in compressed format (save your disk space). Using “\t” as the delimiter.
-
-
 
  		ranks.map(r => r._1 + "\t" + r._2).saveAsTextFile("./pageranks", classOf[GzipCodec])
 	//	ranks.map(r => r._1 + "\t" + r._2).saveAsTextFile("./pageranks")
