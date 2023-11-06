@@ -11,7 +11,7 @@ object patternExtraction{
 		val sc = new SparkContext(conf)
 		//.setMaster("spark://Simeons-Macbook-Pro.local:7077")
 		val txtOne = sc.textFile("/Users/.../spark_disk/project/one.txt")  // RDD text One
-		val txtTwo = sc.textFile("/users/.../programming/spark_disk/project/two.txt")	 // RDD text Two
+		val txtTwo = sc.textFile("/users/.../spark_disk/project/two.txt")  // RDD text Two
 
 
 		println("RDD containing Union (contents of both files)")
