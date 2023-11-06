@@ -10,7 +10,7 @@ object WikiArticle{
 		val sparkConf = new SparkConf().setAppName("WikiArticle")		// Spark Configuration used to set parameters as key-value pairs.
 		val sc = new SparkContext(sparkConf)					// SparkContext : connection to a Spark cluster; used to create RDDs,
 											// Aaccumulators and Broadcast variables on cluster.
-		val txt = sc.textFile("/Users/simeonmeerson/Desktop/wikiOut2.txt")	// output fromHW - Wiki Pages in lines5
+		val txt = sc.textFile("/Users/.../wikiOut2.txt")			// output fromHW - Wiki Pages in lines5
 		var lineCT = 0;								// Line Count
                 var title = ""								// var title?
                 var text = ""								// var text?
@@ -54,8 +54,8 @@ object WikiArticle{
 			   redirectFound 		 == 		None		)
 			{
 				println("Article Found : " + title + " : " + lineCT )
-										//  isArticle = true will not allow me to mutate boolean as val / var
-				finds = false			//  Element(s) have  NOT  been located/identified in file
+									//  isArticle = true will not allow me to mutate boolean as val / var
+				finds = false				//  Element(s) have  NOT  been located/identified in file
 				return true				//  if finds false must be true (return true for file isArticle		 
 			}
 			else						//  Open else	(otherwise)
@@ -71,9 +71,8 @@ object WikiArticle{
 		//	val hello = articles.collect().count()
 			val articlesCounted = articles.count()
 		
-		articles.saveAsTextFile("/users/simeonmeerson/desktop/wikiArticles2.txt")				// GENERATING COMMAS 
-						// INSTEAD OF SAVE AS TEXT FILE use GIVEN save as text file line from ASSIGNMENT 8 to take care of commas \t
-																										// please save - needed for later for Page Rank
+		articles.saveAsTextFile("/users/.../wikiArticles2.txt")				// GENERATING COMMAS 
+		// INSTEAD OF SAVE AS TEXT FILE use GIVEN save as text file. Take care of commas \t																						// please save - needed for later for Page Rank
 		//	print(counter)
 		//	print(hello)
 		//	println(articlesCounted)
